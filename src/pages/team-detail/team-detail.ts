@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { MyTeamsPage } from "../my-teams/my-teams";
 
 /**
  * Generated class for the TeamDetailPage page.
@@ -25,5 +26,17 @@ public team : any = {};
   ionViewDidLoad() {
     console.log('ionViewDidLoad TeamDetailPage');
   }
+
+goHome()
+{
+  //this.navCtrl.push(MyTeamsPage);
+//  this.navCtrl.popToRoot();////   in this case noting is hapened because this page is achild of TeamHomePage and on lick it do nothing
+console.log('****parent',this.navCtrl.parent);
+this.navCtrl.parent.popToRoot();
+
+}
+
+
+
 
 }
