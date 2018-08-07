@@ -3,12 +3,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { MyTeamsPage } from "../my-teams/my-teams";
 import { TeamsPage } from "../teams/teams";
 
-/**
- * Generated class for the TurnamentsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
