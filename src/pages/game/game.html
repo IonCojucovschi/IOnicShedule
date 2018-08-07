@@ -14,5 +14,16 @@
 
 
 <ion-content padding>
-
+<h2>
+  Home Team
+</h2>
+<button ion-button (click)="teamTapped(game.team1Id)">
+{{game.team1}}
+</button>
+<h2>
+  Away team
+</h2>
+<button ion-button (click)="teamTapped(game.team2Id)">
+{{game.team2}}
+</button>
 </ion-content>

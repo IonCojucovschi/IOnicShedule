@@ -4,6 +4,7 @@ import { MyTeamsPage } from "../my-teams/my-teams";
 
 import * as _ from 'lodash';
 import { EliteApi } from "../../providers/elite-api/elite-api";
+import { GamePage } from '../game/game';
 
 @Component({
   selector: 'page-team-detail',
@@ -58,6 +59,12 @@ getScoreDisplay(isTeam1,team1Score,team2Score)
    }
   }
 
+
+  itemIsClicked($event,game)
+  {
+      let sourceGame=this.tourneyData.games.find(g=>g.id===game.gameId);
+      this.navCtrl.parent.parent.push(GamePage, sourceGame);
+  }
 
 
 }
