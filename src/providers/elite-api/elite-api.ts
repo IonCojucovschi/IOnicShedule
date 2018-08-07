@@ -29,4 +29,12 @@ getTuramentData(turnamentID):Observable<any>
   });
 }
 
+getCurentTureny()
+{
+  return this.CurentTurney;
+}
+
+
+
+
 }
