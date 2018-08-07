@@ -18,6 +18,23 @@ export class TurnamentsPage {
     console.log('ionViewDidLoad TurnamentsPage');
   }
 
+ionViewWillEnter()
+{
+  console.log('ionViewWillEnter TurnamentsPage');
+}
+
+ionViewWillLeave()
+{
+  console.log('ionViewWillLeave TurnamentsPage');
+}
+
+ionViewWillUnload()
+{
+  console.log('ionViewWillUnload TurnamentsPage');
+}
+
+
+
 ///clik event from html page 
 itemTapped(){
   this.navCtrl.push(TeamsPage);
