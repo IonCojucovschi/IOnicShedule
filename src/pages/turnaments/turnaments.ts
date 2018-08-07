@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { MyTeamsPage } from "../my-teams/my-teams";
 
 /**
  * Generated class for the TurnamentsPage page.
@@ -21,5 +22,12 @@ export class TurnamentsPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad TurnamentsPage');
   }
+
+///clik event from html page 
+navigate(){
+  this.navCtrl.push(MyTeamsPage);
+}
+
+
 
 }
