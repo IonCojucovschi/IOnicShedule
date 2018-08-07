@@ -9,7 +9,5 @@
 
 
 <ion-content >
-<button ion-item (click)="itemTapped()">HC Elite</button>
-<button ion-item (click)="itemTapped()">Team Takeover</button>
-
+<button  *ngFor="let team of teams"  ion-item  (click)="itemTapped($event, team)">{{team.name}}</button>
 </ion-content>
