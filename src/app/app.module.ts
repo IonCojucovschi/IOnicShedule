@@ -13,6 +13,8 @@ import { GamePage } from "../pages/game/game";
 import { TeamsPage } from "../pages/teams/teams";
 import { TeamDetailPage } from "../pages/team-detail/team-detail";
 import { TurnamentsPage } from "../pages/turnaments/turnaments";
+import { TeamHomePage } from "../pages/team-home/team-home";
+import { StandingsPage } from "../pages/standings/standings";
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { TurnamentsPage } from "../pages/turnaments/turnaments";
     GamePage,
     TeamsPage,
     TeamDetailPage,
-    TurnamentsPage
+    TurnamentsPage,
+    TeamHomePage,
+    StandingsPage
     // HomePage,
     // ListPage
   ],
@@ -36,7 +40,9 @@ import { TurnamentsPage } from "../pages/turnaments/turnaments";
     GamePage,
     TeamsPage,
     TeamDetailPage,
-    TurnamentsPage
+    TurnamentsPage,
+    TeamHomePage,
+    StandingsPage
     // HomePage,
     // ListPage
   ],
