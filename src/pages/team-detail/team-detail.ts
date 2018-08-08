@@ -15,7 +15,7 @@ export class TeamDetailPage {
 public team : any = {};
 public games:any[];
 private tourneyData: any;
-
+private teamStanding:any={};
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               private eliteApli:EliteApi) {}
@@ -40,6 +40,8 @@ private tourneyData: any;
                     homeAway:(isTeam1 ? "vs." : "at")
                   };
                 }).value();
+
+      this.teamStanding=_.find(this.tourneyData.standings,{'teamId':this.team.id});          
   }
 
 
