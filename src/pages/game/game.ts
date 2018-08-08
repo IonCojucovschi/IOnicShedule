@@ -24,7 +24,7 @@ this.game=this.navParams.data;
   teamTapped(teamId)
   {
     let turneyData=this.eliteApi.getCurentTureny();
-    let team=turneyData.teams.fint(t=>t.id===teamId);
+    let team=turneyData.teams.find(t=>t.id===teamId);
     this.navCtrl.push(TeamHomePage,team);
   }
 }
