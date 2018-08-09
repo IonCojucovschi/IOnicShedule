@@ -6,6 +6,7 @@ import * as _ from 'lodash';
 import { EliteApi } from "../../providers/elite-api/elite-api";
 import { GamePage } from '../game/game';
 import moment from 'moment';
+import { UserSettings } from "../../providers/user-settings/user-settings";
 
 @Component({
   selector: 'page-team-detail',
@@ -27,6 +28,7 @@ public isFollowing=false;
               private alertController:AlertController,
               public navCtrl: NavController,
               public navParams: NavParams,
+              private userSetting:UserSettings,
               private eliteApli:EliteApi) {}
 
   ionViewDidLoad() {
@@ -51,7 +53,9 @@ public isFollowing=false;
                 }).value();
  
       this.allGames=this.games;
-      this.teamStanding=_.find(this.tourneyData.standings,{'teamId':this.team.id});          
+      this.teamStanding=_.find(this.tourneyData.standings,{'teamId':this.team.id});      
+      this.userSetting.isFavoriteTeam(this.team.id.toString()).then(value=>this.isFollowing=value);
+
   }
 
 
@@ -113,7 +117,9 @@ toggleFollow()
       text:'Yes',
       handler:()=>{
         this.isFollowing=false;
-        /// TO DO INTEGRATE WITH DATA BASE :
+        ///delete form data base 
+        this.userSetting.unfavoriteTeam(this.team);
+
         let toast=this.toastController.create({
           message:'You have unfollowed this team.',
           duration:2000,
@@ -127,7 +133,6 @@ toggleFollow()
       text:'No',
       handler:()=>{
         this.isFollowing=true;
-        /// TO DO INTEGRATE WITH DATA BASE :
       }
     }
     ]});
@@ -138,6 +143,8 @@ toggleFollow()
   {
      this.isFollowing=true;
      ////   persist data
+        this.userSetting.favoriteTeam(this.team,this.tourneyData.tounament.id,this.tourneyData.tournamnet.name)
+     
   }
 }
 
