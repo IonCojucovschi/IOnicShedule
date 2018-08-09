@@ -49,6 +49,13 @@ private allTeamDivision:any;
     console.log('ionViewDidLoad TeamsPage');
   }
 
+
+goHome()
+{
+  //this.navCtrl.push(MyTeamsPage);
+   this.navCtrl.popToRoot();
+}
+
 itemTapped($event,team)
 {
   this.navCtrl.push(TeamHomePage,team);

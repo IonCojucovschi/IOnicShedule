@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, AlertController } from 'ionic-angular';
+import { NavController, NavParams, AlertController, ToastController } from 'ionic-angular';
 import { MyTeamsPage } from "../my-teams/my-teams";
 
 import * as _ from 'lodash';
@@ -23,7 +23,8 @@ public useDateFilter=false;
 public isFollowing=false;
 
 
-  constructor(private alertController:AlertController,
+  constructor(private toastController:ToastController,
+              private alertController:AlertController,
               public navCtrl: NavController,
               public navParams: NavParams,
               private eliteApli:EliteApi) {}
@@ -113,6 +114,13 @@ toggleFollow()
       handler:()=>{
         this.isFollowing=false;
         /// TO DO INTEGRATE WITH DATA BASE :
+        let toast=this.toastController.create({
+          message:'You have unfollowed this team.',
+          duration:2000,
+          position:'bottom',
+          ///cssClass:"My-class"   //// set personalized toast 
+        });
+        toast.present();
       }
     },
     {
