@@ -153,4 +153,14 @@ toggleFollow()
 
 
 
+refreshAll(refresher)
+{
+ this.eliteApli.refreshCurrentTourney().subscribe(()=>{
+       refresher.complete();
+       this.ionViewDidLoad();
+ });
+}
+
+
+
 }
