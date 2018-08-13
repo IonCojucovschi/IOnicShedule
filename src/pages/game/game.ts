@@ -5,6 +5,8 @@ import { TeamHomePage } from '../team-home/team-home';
 import { MapPage } from "../map/map";
 
 
+declare var window:any;
+
 @Component({
   selector: 'page-game',
   templateUrl: 'game.html',
@@ -31,7 +33,10 @@ this.game.gameTime=Date.parse(this.game.time);
 
 goToDirections()
 {
-  //placeholder
+   let tourneyData=this.eliteApi.getCurentTureny();
+   let location =tourneyData.locations[this.game.locationId];
+   window.location=`geo:${location.latitude},${location.longitude};u-35`;
+
 }
  
 goToMap()
