@@ -10,6 +10,9 @@
     </ion-buttons>
   </ion-navbar>
 
+<ion-toolbar>
+  <ion-searchbar placeholder="Search" [(ngModel)]="queryText" (ionInput)="updateTeams()"></ion-searchbar>
+</ion-toolbar>
 </ion-header>
 
 

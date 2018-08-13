@@ -13,6 +13,7 @@ export class TeamsPage {
 public teams=[];
 private allTeams:any;
 private allTeamDivision:any;
+public queryText:string;
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
@@ -61,6 +62,18 @@ itemTapped($event,team)
   this.navCtrl.push(TeamHomePage,team);
 }
 
-
+updateTeams()
+{
+  let queryTextLower=this.queryText.toLowerCase();
+  let filterTeams=[];
+  _.forEach(this.allTeamDivision,td=>{
+    let teams=_.filter(td.divisionTeams,t=>(<any>t).name.toLowerCase().includes(queryTextLower));
+    if(teams.length)
+    {
+      filterTeams.push({divisionName:td.divisionName,divisionTeams:teams});
+    }
+  });
+  this.teams=filterTeams;
+}
 
 }
