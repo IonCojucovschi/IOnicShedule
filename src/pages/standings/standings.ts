@@ -25,15 +25,29 @@ public team:any;
     let turneyData=this.eliteApi.getCurentTureny();
     this.standings=turneyData.standings;
 
-    this.allStandings=
-      _.chain(this.standings)
-      .groupBy('division')
-      .toPairs()
-      .map(item=> _.zipObject(['divisionName','divisionStandings'],item))
-      .value();
+
+this.allStandings=turneyData.standings;
+    // this.allStandings=
+    //   _.chain(this.standings)
+    //   .groupBy('division')
+    //   .toPairs()
+    //   .map(item=> _.zipObject(['divisionName','divisionStandings'],item))
+    //   .value();
 
    console.log('allStandings', this.allStandings);
    console.log('standings',this.standings)
   }
+
+getHeader(record,recordIndex,records)
+{
+  if(recordIndex ===0 || record.division !== records[recordIndex-1].division)
+  {
+    return record.division;
+  }
+  return null;
+}
+
+
+
 
 }
