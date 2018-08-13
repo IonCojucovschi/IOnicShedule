@@ -35,6 +35,7 @@ public isFollowing=false;
     this.team=this.navParams.data;
     
     this.tourneyData=this.eliteApli.getCurentTureny();
+    console.log("tuney data",this.tourneyData);
     this.games=_.chain(this.tourneyData.games)
                 .filter(g=>g.team1Id===this.team.id || g.team2Id===this.team.id)
                 .map(g=>{
@@ -55,6 +56,7 @@ public isFollowing=false;
       this.allGames=this.games;
       this.teamStanding=_.find(this.tourneyData.standings,{'teamId':this.team.id});      
       this.userSetting.isFavoriteTeam(this.team.id.toString()).then(value=>this.isFollowing=value);
+      
 
   }
 
@@ -143,7 +145,7 @@ toggleFollow()
   {
      this.isFollowing=true;
      ////   persist data
-        this.userSetting.favoriteTeam(this.team,this.tourneyData.tounament.id,this.tourneyData.tournamnet.name)
+        this.userSetting.favoriteTeam(this.team,this.tourneyData.tournament.id,this.tourneyData.tournament.name)
      
   }
 }

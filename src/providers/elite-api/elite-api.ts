@@ -7,7 +7,7 @@ import {Observable} from 'rxjs/Observable';
 @Injectable()
 export class EliteApi {
 private BaseURL="https://elite-shedule-app-dfe49.firebaseio.com/";
-private CurentTurney:any={};
+private CurentTurney:any;
 
 
   constructor(public http: Http) {
@@ -25,6 +25,7 @@ getTuramentData(turnamentID):Observable<any>
   return this.http.get(`${this.BaseURL}/tournaments-data/${turnamentID}.json`)
   .map(responese=>{
     this.CurentTurney=responese.json();
+    console.log("is curent turney initialized value= ",this.CurentTurney);
     return this.CurentTurney;
   });
 }
