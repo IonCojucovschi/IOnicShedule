@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { EliteApi } from '../../providers/elite-api/elite-api';
 import { TeamHomePage } from '../team-home/team-home';
+import { MapPage } from "../map/map";
 
 
 @Component({
@@ -35,7 +36,7 @@ goToDirections()
  
 goToMap()
 {
-  //placeholder
+  this.navCtrl.push(MapPage,this.game);
 } 
 
 isWinner(score1,score2)

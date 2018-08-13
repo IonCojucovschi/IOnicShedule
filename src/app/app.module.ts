@@ -3,7 +3,7 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import{HttpModule} from '@angular/http';
 import{IonicStorageModule} from '@ionic/storage';
-
+import{AgmCoreModule} from '@agm/core';
 import { MyApp } from './app.component';
 // import { HomePage } from '../pages/home/home';
 // import { ListPage } from '../pages/list/list';
@@ -19,10 +19,12 @@ import { TeamHomePage } from "../pages/team-home/team-home";
 import { StandingsPage } from "../pages/standings/standings";
 import { EliteApi } from '../providers/elite-api/elite-api';
 import { UserSettings } from '../providers/user-settings/user-settings';
+import { MapPage } from "../pages/map/map";
 
 @NgModule({
   declarations: [
     MyApp,
+    MapPage,
     MyTeamsPage,
     GamePage,
     TeamsPage,
@@ -38,10 +40,12 @@ import { UserSettings } from '../providers/user-settings/user-settings';
     IonicStorageModule.forRoot(),
     HttpModule,////aded for providing data 
     IonicModule.forRoot(MyApp),
+    AgmCoreModule.forRoot({apiKey:'AIzaSyBefsM5dKMeEnbVa2rs_Pg7_pORD21xGzw'})
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    MapPage,
     MyTeamsPage,
     GamePage,
     TeamsPage,
