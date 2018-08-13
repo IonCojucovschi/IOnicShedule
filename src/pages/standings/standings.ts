@@ -14,6 +14,7 @@ export class StandingsPage {
 public allStandings:any[];
 public standings:any[];
 public team:any;
+public divisionFilter='division';
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
@@ -34,6 +35,7 @@ this.allStandings=turneyData.standings;
     //   .map(item=> _.zipObject(['divisionName','divisionStandings'],item))
     //   .value();
 
+this.filterDivision();
    console.log('allStandings', this.allStandings);
    console.log('standings',this.standings)
   }
@@ -46,7 +48,17 @@ getHeader(record,recordIndex,records)
   }
   return null;
 }
-
+ 
+ filterDivision()
+ {
+   if(this.divisionFilter==='all')
+   {
+      this.standings=this.allStandings;
+   }else
+   {
+      this.standings=_.filter(this.allStandings,s=>s.division===this.team.division);
+   }
+ }
 
 
 
